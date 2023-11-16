@@ -1,1 +1,3 @@
-setTimeout(Alert('teste'), 2000);
+function teste(){
+    alert('teste');
+}
