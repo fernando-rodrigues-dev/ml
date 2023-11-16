@@ -1,0 +1,1 @@
+setTimeout(Alert('teste'), 2000);
