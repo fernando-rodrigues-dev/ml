@@ -1,20 +1,3 @@
-// ==UserScript==
-// @name         New Userscript
-// @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  try to take over the world!
-// @author       You
-// @match        https://produto.mercadolivre.com.br/*
-// @match        https://www.mercadolivre.com.br/*/p/*
-// @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
-// @grant        none
-// @require      https://code.jquery.com/jquery-3.7.1.min.js
-// ==/UserScript==
-
-/*var remoteScript = document.createElement('script');
-remoteScript.src = 'https://cdn.jsdelivr.net/gh/fernando-rodrigues-dev/ml/ml.script.js?ts='+(+new Date());;
-document.body.appendChild(remoteScript);*/
-
 var janelaCss = document.createElement('style')
 janelaCss.innerText = `
 #janela {
@@ -37,7 +20,7 @@ janelaCss.innerText = `
     height: 200px!important;
 }
 #janelaTXT {
-    width: 200px;
+    width: 180px;
     height: 200px;
 }
 `
@@ -45,6 +28,7 @@ document.head.appendChild(janelaCss);
 
 var janela = document.createElement('div');
 janela.id = 'janela'
+janela.classList.add('janelaOver');
 
 var janelaTXT = document.createElement('div')
 janelaTXT.id = 'janelaTXT'
