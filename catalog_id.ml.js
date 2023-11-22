@@ -11,10 +11,11 @@ font-weight: bold;}`
 
     var href
     var mlid
-    $('.ui-search-layout__item').each(function(i){
+    $('.ui-search-layout__item, .ui-recommendations-card').each(function(i){
         href = $(this).find('a').attr('href')
         if(href.substr(0,11) == 'https://www'){
             mlid = href.split('/')[5].split('?')[0]
+            mlid = mlid.split('#')[0]
             $(this).prepend('<div class="mlid-cat">'+mlid+'</div>')
         }
     })
