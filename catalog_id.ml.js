@@ -1,4 +1,4 @@
-function run(){
+function run() {
     var style = document.createElement('style')
     style.innerText = `.mlid-cat{
 background: red;
@@ -11,12 +11,23 @@ font-weight: bold;}`
 
     var href
     var mlid
-    $('.ui-search-layout__item, .ui-recommendations-card').each(function(i){
+    var conta = 0;
+    $('.ui-search-layout__item, .ui-recommendations-card').each(function (i) {
         href = $(this).find('a').attr('href')
-        if(href.substr(0,11) == 'https://www'){
+        if (href.substr(0, 11) == 'https://www') {
             mlid = href.split('/')[5].split('?')[0]
             mlid = mlid.split('#')[0]
-            $(this).prepend('<div class="mlid-cat">'+mlid+'</div>')
+            $(this).prepend('<div class="mlid-cat" id="cat-' + mlid + '">' + mlid + '</div>')
+
+            setTimeout(function (url, id) {
+                $.get(url, function (data) {
+                    var startIndex = data.indexOf('<span class="ui-pdp-subtitle">Novo  |  +');
+                    var endIndex = data.indexOf(' vendidos</span>', startIndex);
+                    var vendas = data.substring(startIndex + 38, endIndex);
+                    $('#cat-' + id).append('<br>' + vendas)
+                })
+            }, 500 * conta, href, mlid)
+            conta++;
         }
     })
 }
