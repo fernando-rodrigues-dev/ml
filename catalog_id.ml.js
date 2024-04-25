@@ -6,7 +6,7 @@ function custo(id, category, price, listing, free_shipping) {
                     if (a.id == 'summary_container_col0_row3') {
                         $(a.bricks).each(function (k, c) {
                             if (c.id == 'summary_col0_row3') {
-                                $('#cat-' + id).append('<br>' + c.data.text)
+                                $('#cat-' + id).append('<br>Sobra ' + c.data.text)
                             }
                         })
                     }
@@ -63,7 +63,7 @@ font-size: 13px;}`
                     var startIndex = data.indexOf('<span class="ui-pdp-subtitle">Novo  |  +');
                     var endIndex = data.indexOf(' vendidos</span>', startIndex);
                     var vendas = data.substring(startIndex + 38, endIndex);
-                    $('#cat-' + id).append('<br>' + vendas)
+                    $('#cat-' + id).append('<br>' + vendas + ' Vendas')
                 })
 
                 custo(id, category, valor, listing, free_shipping);
