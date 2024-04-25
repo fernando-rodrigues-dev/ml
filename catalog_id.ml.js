@@ -32,5 +32,4 @@ font-weight: bold;}`
     })
 }
 
-run();
 setTimeout(run, 5000);
